@@ -1,15 +1,47 @@
-/*
-1. Retrieve the emp_no, first_name, and last_name columns from the Employees table.
-2. Retrieve the title, from_date, and to_date columns from the Titles table.
-3. Create a new table using the INTO clause.
-4. Join both tables on the primary key.
-5. Filter the data on the birth_date column to retrieve the employees who were born between 1952 and 1955. Then, order by the employee number.
-6. Export the Retirement Titles table from the previous step as retirement_titles.csv and save it to your Data folder in the Pewlett-Hackard-Analysis folder.
-7. Before you export your table, confirm that it looks like this image
-*/
+/**********************
+	DELIVERABLE 1
+***********************/
 
-SELECT DISTINCT ON (e.emp_no, e.first_name, e.last_name), t.title t.from_date, t.to_date
--- INTO 
-ORDER BY t.to_date DESC
+--Deliverable 1.7
+SELECT e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date
+INTO retirement_titles
+FROM employees e
+INNER JOIN titles t
+        ON (t.emp_no = e.emp_no)
+WHERE (e.birth_date BETWEEN '1952-01-01' AND '1955-12-31')
+ORDER BY e.emp_no;
 
-select * from titles
+--Deliverable 1.15
+SELECT DISTINCT ON (r.emp_no) r.emp_no, r.first_name, r.last_name, r.title
+INTO unique_titles
+FROM retirement_titles r
+WHERE (r.to_date = '9999-01-01')
+ORDER BY r.emp_no, r.to_date DESC;
+
+--Deliverable 1.21
+SELECT COUNT(u.emp_no) AS count, u.title 
+INTO retiring_titles
+FROM unique_titles u
+GROUP BY u.title
+ORDER BY count DESC
+
+
+/**********************
+	DELIVERABLE 2
+***********************/
+
+SELECT DISTINCT ON (e.emp_no) e.emp_no, e.first_name, e.last_name, e.birth_date, de.from_date, de.to_date, t.title
+INTO mentorship_eligibilty
+FROM employees e
+INNER JOIN dept_emp de
+        ON e.emp_no = de.emp_no 
+INNER JOIN titles t
+        ON t.emp_no = e.emp_no
+WHERE (e.birth_date BETWEEN '1965-01-01' AND '1965-12-31')
+AND (de.to_date = '9999-01-01')
+ORDER BY emp_no, from_date DESC
+
+
+
+
+
