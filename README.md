@@ -18,7 +18,7 @@ For our initial analysis, we queried the employee database to determine 1) the n
 Fig #1
 ![Unique titles](Resources/Unique_Title_Count.PNG)
 
-4. 1,549 employees are eligible for the mentorship program with the constraints being that they are a current employee that was born in 1965 - List available [here](https://github.com/amykatherines/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibility.csv).
+4. 1,549 employees are eligible for the mentorship program with the constraints being that they are a current employee that was born in 1965 - List available [here](https://github.com/amykatherines/Pewlett-Hackard-Analysis/blob/main/Data/mentorship_eligibilty.csv).
 
 
 ## Challenge Questions & Summary
