@@ -8,6 +8,10 @@ Pewlett Hackard is anticipating a large number of retirements based on the curre
 
 For our initial analysis, we queried the employee database to determine 1) the number of employees that are more likely to retire because they were born between the years of 1952 and 1955, and 2) a list of employees that would be eligible for the proposed Mentorship Program where eligibility is that they were born in 1965.  Below we've provided four points of interest based on our analysis:
 
+~1,550 employees eligible for the mentorship program with the constraints being that they are a current employee that was born in 1965.
+~72,500 employees that are in our retirement window from 1952 to 1955
+
+
 
 Results: Provide a bulleted list with four major points from the two analysis deliverables. Use images as support where needed.
 Summary: Provide high-level responses to the following questions, then provide two additional queries or tables that may provide more insight into the upcoming "silver tsunami."
